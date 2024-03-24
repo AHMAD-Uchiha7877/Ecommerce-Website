@@ -1,0 +1,291 @@
+/* Importing the Poppins font family from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Resetting default styles and applying custom styles */
+* {
+  /* Setting the font family to Poppins for all elements */
+  font-family: "Poppins", sans-serif;
+  /* Resetting margins and padding to zero for all elements */
+  margin: 0;
+  padding: 0;
+  /* Adding padding when scrolling to prevent content jumping */
+  scroll-padding-top: 2rem;
+  /* Making scrolling behavior smooth for better user experience */
+  scroll-behavior: smooth;
+  /* Removing bullet points from lists */
+  list-style: none;
+  /* Using border-box model to include padding and border in element's total width and height */
+  box-sizing: border-box;
+  /* Removing underlines from text links */
+  text-decoration: none;
+}
+
+:root {
+  --margin-color: #fd4646;
+  --text-color: #171427;
+  --bg-color: #fff;
+}
+
+img {
+  width: 100%;
+}
+body {
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1068px;
+  margin: auto;
+  width: 100%;
+}
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-color);
+  box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
+  z-index: 1;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+#cart-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Shop */
+section {
+  padding: 4rem 0 3rem;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.shop {
+  margin-top: 2rem;
+}
+
+/* Shop Content */
+.shop-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+  gap: 1.5rem;
+}
+
+.product-box {
+  position: relative;
+}
+.product-box:hover {
+  /* This increases the space around the content inside the box. */
+  padding: 10px;
+  border: 0.7px solid var(--text-color);
+  transition: 0.4s; /* Adds a smooth transition effect over 0.4 seconds */
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+.product-title {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-weight: 500;
+}
+
+.add-cart {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.add-cart:hover {
+  background-color: hsl(249, 32%, 17%);
+}
+
+/* CART */
+.cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 360px;
+  min-height: 100vh;
+  padding: 20px;
+  background: var(--bg-color);
+  box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+  /* Add transition to animate changes in 'right' property */
+  transition: 0.3s ease;
+}
+
+/* Styles for the .cart element when it has the 'active' class */
+.cart.active {
+  /* Move the cart into the viewport */
+  right: 0;
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+/* Styles the .cart-box element */
+.cart-box {
+  /* Displays the .cart-box element as a grid container */
+  display: grid;
+  /* Defines the width of the columns in the grid:
+       - The first column takes up 32% of the container width
+       - The second column takes up 50% of the container width
+       - The third column takes up 18% of the container width */
+  grid-template-columns: 32% 50% 18%;
+  /* Aligns the items along the cross axis (vertical alignment) to center */
+  align-items: center;
+  /* Specifies the gap (space) between grid cells */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cart-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.detail-box {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.cart-product-title {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.cart-price {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.cart-quantity {
+  border: 1px solid var(--text-color);
+  outline-color: var(--margin-color);
+  width: 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-remove {
+  font-size: 24px;
+  color: var(--margin-color);
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  border: 1px solid var(--text-color);
+}
+
+.total-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.total-price {
+  margin-left: 0.5rem;
+}
+
+.btn-buy {
+  display: flex;
+  margin: 1.5rem auto 0 auto;
+  padding: 12px 20px;
+  border: none;
+  background-color: var(--margin-color);
+  color: var(--bg-color);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-buy:hover {
+  background-color: var(--text-color);
+}
+
+#cart-close {
+  position: absolute;
+  top: 1rem;
+  right: 0.6rem;
+  font-size: 2rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* 
+ *Breakpoint / Making Responsive
+  */
+
+@media (max-width: 1080px) {
+  .nav {
+    padding: 15px;
+  }
+  section {
+    padding: 3rem 0 2rem;
+  }
+  .container {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .shop {
+    margin-top: 2rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav {
+    padding: 11px;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+
+  .cart {
+    width: 320px;
+  }
+}
+
+@media (max-width: 360px) {
+  .shop {
+    margin-top: 1rem !important;
+  }
+  .cart {
+    width: 280px;
+  }
+}
